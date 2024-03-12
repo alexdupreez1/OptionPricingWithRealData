@@ -37,21 +37,7 @@ def compute_implied_volatility(tree, maturity, interest, strikeprice, historical
     return implied_volatility, theoretical_prices
 
 
-def create_implied_volatility_curve(tree, maturity, interest, historical_volatility, market_price,iterations):
 
-    Ks = np.arange(0, 101,10)
-    implied_volatilities = []
-
-    for K in Ks:
-        implied_volatility = compute_implied_volatility(tree, maturity, interest, K, historical_volatility, market_price,iterations)[0]
-        implied_volatilities.append(implied_volatility)
-
-    plt.plot(Ks, implied_volatilities)
-    plt.xlabel("Strike price")
-    plt.ylabel("Implied volatility")
-    plt.show()
-
-    return implied_volatilities
 
     
 if __name__ == "__main__":
@@ -81,4 +67,3 @@ if __name__ == "__main__":
 
     #theoretical_value = compute_implied_volatility(tree, T, r, K, sigma, market_price,100)
 
-    create_implied_volatility_curve(tree, T, r, sigma, market_price,100)    
